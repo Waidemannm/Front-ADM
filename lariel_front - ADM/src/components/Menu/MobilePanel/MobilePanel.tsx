@@ -34,7 +34,7 @@ export default function MobilePanel(): React.ReactElement {
             role="dialog"
             aria-modal="true"
             aria-label="Menu móvel"
-            className={`md:hidden fixed inset-0 z-50 transition-opacity duration-300 ${
+            className={`md:hidden fixed inset-0 z-50 transition-opacity duration-300 p-10 ${
                 isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
         >
@@ -49,8 +49,10 @@ export default function MobilePanel(): React.ReactElement {
                 className={`relative z-10 flex flex-col items-center justify-center h-full text-white/90 transition-all duration-500 transform ${
                     isOpen ? "translate-y-0 opacity-100 scale-100" : "translate-y-8 opacity-0 scale-95"
                 }`}
+
             >
-                <nav className="overflow-auto flex flex-col items-center gap-8 text-xl font-semibold" onClick={close}>
+                <nav className="overflow-y-auto overflow-x-hidden flex flex-col items-left gap-8" onClick={close}>
+
                     <Link 
                         to="/" 
                         className="flex items-center gap-3 p-3 rounded-lg transition-all duration-300 hover:bg-white/10 hover:text-blue-400 hover:scale-105 active:scale-95" 

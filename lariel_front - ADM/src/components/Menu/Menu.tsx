@@ -8,7 +8,6 @@ export default function Menu(){
             <Link to="/convites" className="text-white hover:text-blue-200 transition-colors duration-200 font-medium">Convites</Link>
             <Link to="/lista_presentes" className="text-white hover:text-blue-200 transition-colors duration-200 font-medium">Lista de presentes</Link>
             <Link to="/mural_recados" className="text-white hover:text-blue-200 transition-colors duration-200 font-medium">Mural de recados</Link>
-
         </nav>
     );
 } 

@@ -11,7 +11,7 @@ import Presenca from './routes/Pages/Presenca';
 import Presentes from './routes/Pages/Presentes';
 import Recados from './routes/Pages/Recados';
 import Convites from './routes/Pages/Convites';
-
+import Convidados from './routes/Pages/Convidados';
 
 const router = createBrowserRouter([
     {path: "/", element: <App/>, errorElement: <Error/>, children: [
@@ -21,6 +21,7 @@ const router = createBrowserRouter([
         {path: "/lista_presentes", element:<Presentes/>},
         {path: "/mural_recados", element:<Recados/>},
         {path: "/convites", element:<Convites/>},
+        {path: "/convidados", element:<Convidados/>}
     ]},
 ], {basename: import.meta.env.VITE_BASE_URL});
 

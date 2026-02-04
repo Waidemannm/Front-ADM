@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { TipoConvite } from "../../../types/tipoConvite";
 import CardConvite from "../../../components/CardConvite/CardConvite";
+import { Link } from "react-router-dom";
 
 export default function Convites(){
     const [convites, setConvites] = useState<TipoConvite[]>([]);
@@ -10,7 +11,7 @@ export default function Convites(){
     useEffect(() => {
         const fetchConvites = async () => {
         try {
-            const response = await fetch('http://localhost:8080/convites');
+            const response = await fetch('https://lariel-java.onrender.com/convites');
             if (!response.ok) {
             throw new Error('Falha ao buscar os dados. O servidor está online?');
             }
@@ -31,32 +32,34 @@ export default function Convites(){
     
     const renderContent = () => {
         if (loading) {
-        return <p className="text-center text-gray-600">Carregando convites...</p>;
+            return <p className="text-center text-gray-600">Carregando convites...</p>;
         }
     
         if (error) {
-        return (
-            <div className="text-center text-red-700 bg-red-100 p-4 rounded-lg">
-            <p>Erro: {error}</p>
-            </div>
-        );
+            return (
+                <div className=" text-center text-red-700 bg-red-100 p-4 rounded-lg">
+                    <p>Erro: {error}</p>
+                </div>
+            );
         }
     
         if (convites.length === 0) {
-        return <p className="text-center text-gray-500">Nenhum convite encontrado.</p>;
+            return <p className="text-center text-gray-500">Nenhum convite encontrado.</p>;
         }
     
         return convites.map((convite) => (
-            <div key={convite.idConvite} className="">
+            <div key={convite.idConvite}>
                 <CardConvite convite={convite}/>
             </div>
         ));
     };
     return(
-        <main>
-            <div className="">
-                {renderContent()}
-            </div>
+        <main className= "max-w-7xl mx-auto leading-relaxed p-8">
+
+            <h1 className="text-2xl text-[var(--color-2)] font-medium text-center">Convites</h1>
+
+            <Link className="flex flex-col p-8 gap-10" to={`/convidados`}>{renderContent()}</Link> 
+            
         </main>
     );
 }
