@@ -39,7 +39,7 @@ export default function MobilePanel(): React.ReactElement {
             }`}
         >
             <div 
-                className={`absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900/95 to-gray-900 backdrop-blur-sm transition-all duration-500 ${
+                className={`absolute inset-0  bg-[var(--color-2)] backdrop-blur-sm transition-all duration-500 ${
                     isOpen ? "opacity-100" : "opacity-0"
                 }`} 
                 onClick={close} 

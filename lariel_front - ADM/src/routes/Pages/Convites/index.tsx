@@ -2,64 +2,100 @@ import { useEffect, useState } from "react";
 import type { TipoConvite } from "../../../types/tipoConvite";
 import CardConvite from "../../../components/CardConvite/CardConvite";
 import { Link } from "react-router-dom";
+import { FiSearch } from "react-icons/fi";
 
-export default function Convites(){
-    const [convites, setConvites] = useState<TipoConvite[]>([]);
-    const [loading, setLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string | null>(null);
+const URL_API = import.meta.env.VITE_URL_API;
 
-    useEffect(() => {
-        const fetchConvites = async () => {
-        try {
-            const response = await fetch('https://lariel-java.onrender.com/convites');
-            if (!response.ok) {
-            throw new Error('Falha ao buscar os dados. O servidor está online?');
-            }
-            const data: TipoConvite[] = await response.json();
-            setConvites(data);
-        } catch (err) {
-            if (err instanceof Error) {
-            setError(err.message);
-            } else {
-            setError('Um erro inesperado ocorreu.');
-            }
-        } finally {
-            setLoading(false);
+export default function Convites() {
+  const [convites, setConvites] = useState<TipoConvite[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const [busca, setBusca] = useState<string>("");
+
+  useEffect(() => {
+    const fetchConvites = async () => {
+      try {
+        const response = await fetch(`${URL_API}/convites`);
+        if (!response.ok) {
+          throw new Error("Falha ao buscar os dados. O servidor está online?");
         }
-        };
-        fetchConvites();
-    }, []);
-    
-    const renderContent = () => {
-        if (loading) {
-            return <p className="text-center text-gray-600">Carregando convites...</p>;
-        }
-    
-        if (error) {
-            return (
-                <div className=" text-center text-red-700 bg-red-100 p-4 rounded-lg">
-                    <p>Erro: {error}</p>
-                </div>
-            );
-        }
-    
-        if (convites.length === 0) {
-            return <p className="text-center text-gray-500">Nenhum convite encontrado.</p>;
-        }
-    
-        return convites.map((convite) => (
-            <div key={convite.idConvite}>
-                <CardConvite convite={convite}/>
-            </div>
-        ));
+        const data: TipoConvite[] = await response.json();
+        setConvites(data);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Um erro inesperado ocorreu.");
+      } finally {
+        setLoading(false);
+      }
     };
-    return(
-        <main className= "max-w-7xl mx-auto leading-relaxed p-8">
 
-            <h1 className="text-2xl text-[var(--color-2)] font-medium text-center">Convites</h1>
+    fetchConvites();
+  }, []);
 
-            <Link className="flex flex-col p-8 gap-10" to={`/convidados`}>{renderContent()}</Link> 
-            
-        </main>
+  if (loading) {
+    return (
+      <main className="max-w-7xl mx-auto leading-relaxed p-8">
+        <p className="text-center text-gray-600">Carregando convites...</p>
+      </main>
     );
+  }
+
+  if (error) {
+    return (
+      <main className="max-w-7xl mx-auto leading-relaxed p-8">
+        <div className="text-center text-red-700 bg-red-100 p-4 rounded-lg">
+          <p>Erro: {error}</p>
+        </div>
+      </main>
+    );
+  }
+
+  if (convites.length === 0) {
+    return (
+      <main className="max-w-7xl mx-auto leading-relaxed p-8">
+        <p className="text-center text-gray-500">Nenhum convite encontrado.</p>
+      </main>
+    );
+  }
+
+  const convitesFiltrados = convites.filter((convite) =>
+    convite.nomeConvite.toLowerCase().includes(busca.toLowerCase())
+  );
+
+  return (
+    <main className="max-w-7xl mx-auto leading-relaxed p-8">
+      
+      <h1 className="text-2xl text-[var(--color-font-black)] font-medium text-center mb-6">
+        Convites
+      </h1>
+
+      <div className="flex justify-center mb-8">
+        <div className="relative w-full max-w-md">
+          <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+          <input className="w-full pl-12 pr-4 py-3 border-1 border-[var(--color-font-black)] rounded-xl outline-none"
+            placeholder="Pesquise o nome do convite"
+            type="text"
+            value={busca}
+            onChange={(ev) => setBusca(ev.target.value)}
+          />
+        </div>
+      </div>
+
+      
+      <div className="flex flex-col gap-10">
+        {convitesFiltrados.map((convite) => (
+          <Link key={convite.idConvite} to={`/convidados/${convite.idConvite}`} className="block">
+            <CardConvite convite={convite} />
+          </Link>
+        ))}
+      </div>
+
+      
+      {convitesFiltrados.length === 0 && (
+        <p className="text-center text-gray-500 mt-6">
+          Nenhum convite encontrado para “{busca}”.
+        </p>
+      )}
+    </main>
+  );
 }
