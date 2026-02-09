@@ -20,15 +20,11 @@ export default function CardConvidado(props: {convidado: TipoConvidado}){
             <div className="text-[var(--color-2)] mt-10 flex justify-center gap-5 md:gap-8 mt-5">
                     <button className="cursor-pointer rounded-xl border-2 border-[var(--color-2)] font-medium w-20 md:w-25 h-13 md:h-10" onClick={() => setOpenConvidadoAtualizar(true)}>Atualizar</button>
 
-                    <ConvidadoAtualizar open={openConvidadoAtualizar} onClose={() => setOpenConvidadoAtualizar(false)}>
-                        A 
-                    </ConvidadoAtualizar>
+                    <ConvidadoAtualizar open={openConvidadoAtualizar} onClose={() => setOpenConvidadoAtualizar(false)}> </ConvidadoAtualizar>
                     
                     <button className="bg-red-400 cursor-pointer rounded-xl border-2 border-red-400 font-medium w-20 md:w-25 h-13 md:h-10" onClick={() => setConvidadoOpenDeletar(true)}>Deletar</button>
 
-                    <ConvidadoDeletar open={openConvidadoDeletar} onClose={() => setConvidadoOpenDeletar(false)}> 
-                        D 
-                    </ConvidadoDeletar>
+                    <ConvidadoDeletar open={openConvidadoDeletar} onClose={() => setConvidadoOpenDeletar(false)}> </ConvidadoDeletar>
 
             </div>
         </div>

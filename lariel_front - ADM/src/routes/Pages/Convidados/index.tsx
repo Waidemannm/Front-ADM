@@ -71,7 +71,7 @@ export default function Convidados(){
                     <p className="text-center text-gray-500">Nenhum convite encontrado.</p>
                     <div className="text-[var(--color-2)] flex flex-col mt-6 items-center justify-center gap-5 md:gap-8 mt-5">
                     
-                        <div className="convite flex flex-col items-center">
+                        <div className="convite flex flex-col justify-center items-center">
                             <h1 className="text-xl text-[var(--color-font-black)] font-medium text-center mt-10">Opções de convidados</h1>
             
                             <div className="convidado-salvar flex justify-center mt-6">
@@ -91,13 +91,13 @@ export default function Convidados(){
                                 <button className="cursor-pointer rounded-xl border-2 border-[var(--color-2)] font-medium w-20 md:w-25 h-13" onClick={() => 
                                 setOpenConviteAtualizar(true)}>Atualizar</button>
             
-                                <ConviteAtualizar open={openConviteAtualizar} onClose={() => setOpenConviteAtualizar(false)}> A </ConviteAtualizar>
+                                <ConviteAtualizar open={openConviteAtualizar} onClose={() => setOpenConviteAtualizar(false)}> </ConviteAtualizar>
                             </div>
                                 
                             <div className="convite-deletar">
                                 <button className="bg-red-400 cursor-pointer rounded-xl border-2 border-red-400 font-medium w-20 md:w-25 h-13" onClick={() => setConviteOpenDeletar(true)}>Deletar</button>
             
-                                <ConviteDeletar open={openConviteDeletar} onClose={() => setConviteOpenDeletar(false)}> D </ConviteDeletar>
+                                <ConviteDeletar open={openConviteDeletar} onClose={() => setConviteOpenDeletar(false)}> </ConviteDeletar>
                             </div>
                             </div>
             
@@ -152,13 +152,13 @@ export default function Convidados(){
                         <button className="cursor-pointer rounded-xl border-2 border-[var(--color-2)] font-medium w-20 md:w-25 h-13" onClick={() => 
                         setOpenConviteAtualizar(true)}>Atualizar</button>
 
-                        <ConviteAtualizar open={openConviteAtualizar} onClose={() => setOpenConviteAtualizar(false)}> A </ConviteAtualizar>
+                        <ConviteAtualizar open={openConviteAtualizar} onClose={() => setOpenConviteAtualizar(false)}> </ConviteAtualizar>
                     </div>
                         
                     <div className="convite-deletar">
                         <button className="bg-red-400 cursor-pointer rounded-xl border-2 border-red-400 font-medium w-20 md:w-25 h-13" onClick={() => setConviteOpenDeletar(true)}>Deletar</button>
 
-                        <ConviteDeletar open={openConviteDeletar} onClose={() => setConviteOpenDeletar(false)}> D </ConviteDeletar>
+                        <ConviteDeletar open={openConviteDeletar} onClose={() => setConviteOpenDeletar(false)}> </ConviteDeletar>
                     </div>
 
                 </div>

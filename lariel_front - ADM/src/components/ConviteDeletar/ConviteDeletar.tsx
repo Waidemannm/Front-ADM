@@ -1,9 +1,59 @@
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
+const URL_API = import.meta.env.VITE_URL_API;
+
 export default function ConviteDELETAR({open,  onClose, children, }: {open: boolean; onClose: () => void; children: React.ReactNode; }){
+
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState<boolean>(false);
+    const { idConvite } = useParams<{ idConvite: string }>();
+
+    const handleSubmit = async () => {
+        try {
+            setLoading(true);
+
+            const response = await fetch(`${URL_API}/convites/${idConvite}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            });
+
+            if (!response.ok) {
+            throw new Error("Falha ao deletar dados do convite.");
+            }
+
+            alert("Convite deletado com sucesso!");
+            navigate("/convites");
+
+        } catch (err) {
+            alert("Falha ao deletar convite!");
+            navigate("/convites");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+        
+
+    if (loading) {
+        return (
+        <main className="max-w-7xl mx-auto leading-relaxed">
+            <div className={`fixed w-full inset-0 flex justify-center items-center transition-colors${open ? "visible bg-black/90" : "invisible"}`}><p className="text-center text-white mt-10">Deletando convite...</p></div>
+        </main>
+        );
+    }
+
     return(
-        <div className={`fixed inset-0 flex justify-center items-center transition-colors ${open ? "visible bg-black/80" : "invisible"}`} onClick={onClose}>
-           <div className={`bg-white text-[var(--color-font-black)] rounded-lg shadow p-6 transtion-all mas-w-md ${open ? "scale-100 opacity-100": "scale-110 opacity-0"}`} onClick={(e) => e.stopPropagation}>
-            <button className="absolute top-2 right-2 text-[var(--color-font-black)]hover:text-gray-700" onClick={onClose}>X</button> {children}
-           </div>
+        <div className={`fixed w-full inset-0 flex justify-center items-center transition-colors ${open ? "visible bg-black/90" : "invisible"}`}>
+            <div className={`bg-white text-[var(--color-font-black)] rounded-lg shadow p-6 transtion-all w-70 md:w-100 ${open ? "scale-100 opacity-100": "scale-110 opacity-0"}`} onClick={(e) => e.stopPropagation}>
+                <button className="absolute top-2 right-2 text-[var(--color-font-black)]hover:text-gray-700 rounded-md text-blue-500 m-1" onClick={onClose}>Fechar</button> {children}
+                <h1 className="text-xl text-[var(--color-font-black)] font-medium text-center mt-10">Deseja deletar o convite?</h1>
+                <div className="flex justify-center m-5">
+                    <button className="bg-gradient-to-br text-white from-[var(--color-2)] via-blue-300 to-[var(--color-2)] cursor-pointer rounded-xl border-2 border-[var(--color-font-black)] font-medium w-20 md:w-25 h-13 md:h-12" onClick={handleSubmit} disabled={loading}>Deletar</button>
+                </div>            
+            </div>
         </div>
     );
 } 
