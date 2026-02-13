@@ -54,7 +54,7 @@ export default function Convites() {
   if (convites.length === 0) {
     return (
       <main className="max-w-7xl mx-auto flex flex-col justify-center leading-relaxed p-8">
-        <p className="text-center text-gray-500">Nenhum convite encontrado.</p>
+        <p className="text-center text-[var(--color-font-black)]">Nenhum convite encontrado.</p>
         <div className="convite-salvar flex items-center flex-col mt-6">
           <h1 className="text-2xl text-[var(--color-font-black)] font-medium text-center mb-6">Adicione seu primeiro convite</h1>
           <button className="bg-green-400 cursor-pointer rounded-xl border-2 border-green-400 font-medium w-25 h-13 p-2" onClick={() => setOpenConvidadoSalvar(true)}>Adicionar</button>
