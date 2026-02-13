@@ -9,9 +9,10 @@ import Home from './routes/Pages/Home';
 import Sobre from './routes/PagesRodape/Sobre';
 import Presenca from './routes/Pages/Presenca';
 import Presentes from './routes/Pages/Presentes';
-import Recados from './routes/Pages/Recados';
 import Convites from './routes/Pages/Convites';
 import Convidados from './routes/Pages/Convidados';
+import RecadosPendentes from './routes/Pages/RecadosPendentes';
+import RecadosAceitos from './routes/Pages/RecadosAceitos';
 
 const router = createBrowserRouter([
     {path: "/", element: <App/>, errorElement: <Error/>, children: [
@@ -19,9 +20,10 @@ const router = createBrowserRouter([
         {path: "/sobre", element:<Sobre/>},
         {path: "/presenca", element:<Presenca/>},
         {path: "/lista_presentes", element:<Presentes/>},
-        {path: "/mural_recados", element:<Recados/>},
+        {path: "/aceitos_recados", element:<RecadosAceitos/>},
         {path: "/convites", element:<Convites/>},
-        {path: "/convidados/:idConvite", element:<Convidados/>}
+        {path: "/convidados/:idConvite", element:<Convidados/>},
+        {path: "/pendentes_recados", element:<RecadosPendentes/>},
     ]},
 ], {basename: import.meta.env.VITE_BASE_URL});
 
