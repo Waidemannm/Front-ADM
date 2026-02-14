@@ -137,8 +137,7 @@ export default function Convidados(){
             </div>
             
 
-            <div className="flex flex-col md:flex-row md:flex-wrap justify-center gap-10">
-
+            <div className="flex flex-col md:flex-row md:flex-wrap items-center justify-center gap-10">
                 {convidadosFiltrados.map((convidado) => (
                     <CardConvidado convidado={convidado} />
                 ))}        

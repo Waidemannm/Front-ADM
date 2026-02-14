@@ -11,7 +11,7 @@ export default function FormSalvarConvite({register, onSubmit}: TipoPropsFormSal
                 </div>
                 <div className="mt-5">
                     <div className="flex justify-center">
-                        <button className="bg-gradient-to-br text-white from-[var(--color-2)] via-blue-300 to-[var(--color-2)] cursor-pointer rounded-xl border-2 border-[var(--color-font-black)] font-medium w-20 md:w-25 h-13 md:h-12" type="submit">Salvar</button>
+                        <button className="bg-[var(--color-2)] text-white cursor-pointer rounded-xl border-2 border-[var(--color-2)] font-medium w-20 md:w-25 h-13 md:h-12" type="submit">Salvar</button>
                     </div>
                 </div>
             </form>

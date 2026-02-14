@@ -67,7 +67,7 @@ export default function Presenca(){
 
     return(
         <main className="max-w-7xl mx-auto leading-relaxed p-8 text-[var(--color-font-black)]">
-            <h1 className="text-2xl text-[var(--color-font-black)] font-medium text-center mb-6">Convidados</h1>
+            <h1 className="text-2xl text-[var(--color-font-black)] font-medium text-center mb-6">Convidados confirmados</h1>
                 <div className="flex justify-center mb-8 gap-5">
                     <div className="relative w-full max-w-md">
                         <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />

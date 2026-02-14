@@ -42,10 +42,10 @@ export default function ConvidadoAtualizar({open,  onClose, children, }: {open: 
             <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/60"><p className="text-white text-lg font-medium">Atualizando convidado...</p></div>
         )}
             <div className={`fixed w-full md:mt-20 inset-0 flex justify-center items-center transition-colors ${open ? "visible bg-black/90" : "invisible"}`}>
-            <div className={`bg-white text-[var(--color-font-black)] rounded-lg shadow p-6 transition-all w-70 md:w-100 ${open ? "scale-100 opacity-100": "scale-110 opacity-0"}`} onClick={(e) => e.stopPropagation}>
-                <button className="absolute top-2 right-2 rounded-md text-blue-500 m-1" onClick={onClose}>Fechar</button> {children}
-                <FormAtualizarConvidado register={register} onSubmit={onSubmit}/>
-            </div>
+                <div className={`bg-white text-[var(--color-font-black)] rounded-lg shadow p-6 transition-all w-70 md:w-100 ${open ? "scale-100 opacity-100": "scale-110 opacity-0"}`} onClick={(e) => e.stopPropagation}>
+                    <button className="absolute top-2 right-2 rounded-md text-blue-500 m-1" onClick={onClose}>Fechar</button> {children}
+                    <FormAtualizarConvidado register={register} onSubmit={onSubmit}/>
+                </div>
             </div>
         </>
     );
