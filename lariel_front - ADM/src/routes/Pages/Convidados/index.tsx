@@ -6,7 +6,7 @@ import CardConvidado from "../../../components/CardConvidado/CardConvidado";
 import { FiSearch } from "react-icons/fi";
 import ConviteAtualizar from "../../../components/ConviteAtualizar/ConviteAtualizar";
 import ConviteDeletar from "../../../components/ConviteDeletar/ConviteDeletar";
-import ConvidadoSalvar from "../../../components/ConvidadoSalvar /ConvidadoSalvar";
+import ConvidadoSalvar from "../../../components/ConvidadoSalvar/ConvidadoSalvar";
 
 const URL_API = import.meta.env.VITE_URL_API
 
