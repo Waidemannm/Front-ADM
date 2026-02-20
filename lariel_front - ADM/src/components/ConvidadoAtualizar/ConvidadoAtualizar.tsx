@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import type { TipoAtualizarConvidado } from "../../types/tipoAtualizarConvidado";
 import FormAtualizarConvidado from "../FormAtualizarConvidado/FormAtualizarConvidado";
 
@@ -11,6 +11,7 @@ export default function ConvidadoAtualizar({open,  onClose, children, }: {open: 
     const navigate = useNavigate();
     const {register, handleSubmit} = useForm<TipoAtualizarConvidado>();
     const [loading, setLoading] = useState<boolean>(false);
+    const { idConvite } = useParams<{ idConvite: string }>();
 
     const onSubmit = handleSubmit(async (data) => {
         try{
@@ -26,7 +27,7 @@ export default function ConvidadoAtualizar({open,  onClose, children, }: {open: 
                 throw new Error("Falha ao atualizar dados do convite. O servidor está online?");
             }
             alert("Convite atualizado com sucesso!");
-            navigate(`/convidados/C`);
+            navigate(`/convidados/${idConvite}`);
             window.location.reload();
             setLoading(false);
         } catch (err) {

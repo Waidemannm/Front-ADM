@@ -68,7 +68,7 @@ export default function Convidados(){
                 <main className="max-w-7xl mx-auto leading-relaxed p-8">
                     <Link to="/convites" className="fixed top-25 left-8 z-50 w-12 h-12  flex items-center justify-center rounded-full border-2 border-white bg-[var(--color-2)] backdrop-blur-sm text-white shadow-md transition-all duration-300  hover:scale-110 active:scale-95"><FiArrowLeft className="text-lg"/></Link>
 
-                    <p className="text-center text-gray-500">Nenhum convite encontrado.</p>
+                    <p className="text-center text-gray-500">Nenhum convidado encontrado.</p>
                     <div className="text-[var(--color-2)] flex flex-col mt-6 items-center justify-center gap-5 md:gap-8 mt-5">
                     
                         <div className="convite flex flex-col justify-center items-center">
