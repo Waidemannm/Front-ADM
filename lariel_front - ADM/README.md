@@ -1,92 +1,138 @@
-Lariel - Casamento da Larissa e Samuel
+# 💍 Lariel — Painel Administrativo
 
-🧠 Título e Descrição
+Interface administrativa da plataforma Lariel, desenvolvida para permitir que o casal gerencie convites, convidados e mensagens enviadas pelo site público.
 
-Este site foi criado especialmente para celebrar o casamento de Larissa e Samuel, reunindo em um só lugar todas as informações importantes para amigos e familiares. A proposta é oferecer uma experiência moderna, organizada e elegante — inspirada nas melhores plataformas de casamento — mas totalmente desenvolvida por mim, com programação personalizada e foco total na experiência do usuário.
+Este painel é responsável pelo controle total das informações do evento, garantindo organização, moderação e atualização em tempo real dos dados exibidos aos convidados.
 
-📌 Status do Projeto
+---
 
-✔ Desenvolvimento...
+## 📌 Status do Projeto
 
-📚 Sobre o Projeto
+🚧 Em desenvolvimento contínuo  
+✔ CRUD de convites implementado  
+✔ CRUD de convidados implementado  
+✔ Sistema de moderação de recados funcional  
 
-A ideia central deste projeto é facilitar a vida dos noivos e convidados, oferecendo um ambiente digital completo que funciona como convite, guia do evento e espaço de interação. Cada detalhe foi pensado para ser intuitivo, acessível e visualmente agradável, criando uma experiência única e significativa para esse momento tão especial.
+---
 
-🛠 Tecnologias Utilizadas
+## 🎯 Objetivo
 
-Frontend: React, Vite e TypeScript
+Fornecer ao casal uma ferramenta segura e intuitiva para:
 
-Backend: Java, Render e Quarkus
+- Gerenciar convites físicos e virtuais  
+- Controlar a lista de convidados  
+- Acompanhar confirmações de presença  
+- Moderar mensagens enviadas ao mural  
 
-Banco de Dados: Oracle SQL (Developer e Data Modeler)
+---
 
-Versionamento: Git + GitHub
+## 🚀 Funcionalidades
 
-⚙ Instalação
-# Clone o repositório
-git clone https://github.com/Waidemannm/lariel_front.git
+### 📩 Gestão de Convites
 
-# Entre na pasta
-cd wellmind
+- Criar novo convite  
+- Editar convite existente  
+- Excluir convite  
+- Visualizar ID do convite  
+- Acessar convidados vinculados ao convite  
 
-# Instale as dependências
-npm install
+Cada convite funciona como um identificador único que conecta o grupo familiar aos seus respectivos convidados.
 
-# Inicie o projeto
-npm start
+---
 
-🚀 Funcionalidades
+### 👥 Gestão de Convidados
 
-# Página Inicial
+- Adicionar convidado ao convite  
+- Editar informações do convidado  
+- Atualizar status de presença:
+  - Confirmado (C)
+  - Ausente (A)
+  - Pendente (P)
+- Remover convidado  
 
-Onde tudo começa: foto do casal, mensagem de boas-vindas e o clima do casamento. É o primeiro contato de quem visita e já transmite a emoção da celebração.
+O sistema permite controle individual por convidado, facilitando o acompanhamento do RSVP.
 
-# História do Casal
+---
 
-Uma seção dedicada a contar a trajetória de Larissa e Samuel — como se conheceram, momentos marcantes e tudo o que os trouxe até o grande dia. Um espaço afetivo criado para aproximar ainda mais os convidados da história deles.
+### 📝 Moderação de Recados
 
-# Informações do Evento
+Quando um visitante envia uma mensagem pelo site público:
 
-Data, horário, endereço, mapa de localização, instruções de chegada e todos os detalhes essenciais para que os convidados se organizem com tranquilidade.
+1. O recado é salvo como **pendente**
+2. No painel administrativo o casal pode:
+   - ✅ Aceitar → move para recados aceitos e publica no mural
+   - ❌ Recusar → remove permanentemente do sistema
 
-# Confirmação de Presença (RSVP)
+Seções disponíveis:
 
-Um sistema simples e rápido para que os convidados confirmem presença diretamente pelo site. Isso ajuda os noivos no planejamento, garantindo organização e controle do número de pessoas.
+- Recados Pendentes  
+- Recados Aceitos  
 
-# Galeria de Fotos
+---
 
-Lugar onde ficam reunidas fotos do casal, registros especiais e, futuramente, momentos do próprio dia do casamento. Tudo organizado de maneira elegante.
+## 🏗 Arquitetura
 
-# Mensagens e Recados
+O painel administrativo integra-se com:
 
-Um mural onde familiares e amigos podem deixar mensagens carinhosas para Larissa e Samuel, eternizando votos de felicidade e boas energias.
+- API REST (Backend Java / Quarkus)
+- Banco de dados Oracle
+- Sistema de atualização em tempo real via requisições HTTP
 
-🗂 Estrutura de Pastas
-lariel/
-...
+Fluxo geral:
 
-🌐 Endpoints ou Rotas Principais
+Frontend ADM → API REST → Banco Oracle → Atualização no Frontend Público
 
-# Página Home
+---
 
-# História do Casal
+## 🛠 Tecnologias Utilizadas
 
-# Casamento
+### Frontend
+- React
+- Vite
+- TypeScript
+- Tailwind CSS
 
-# Confirmação de Presença (RSVP)
+### Backend (Integração)
+- Java
+- Quarkus
+- Deploy via Render
 
-# Momentos
+### Banco de Dados
+- Oracle SQL
+- Oracle SQL Developer
+- Oracle Data Modeler
 
-# Mural de Recados
+### Versionamento
+- Git
+- GitHub
 
-👨‍💻 Autores e Créditos
+---
+
+### 👨‍💻 Autor
 
 Moisés Waidemann Molinillo Júnior
+
+Desenvolvedor responsável por toda a arquitetura, implementação e integração do sistema.
+
+⸻
 
 📞 Contato
 
 📧 Email: mjrmolinllo@icloud.com
 
-🌐 Site: ...
+🌐 GitHub: https://github.com/Waidemannm/lariel_front-ADM
 
-GitHub: https://github.com/Waidemannm/lariel_front.git
+## ⚙ Instalação
+
+```bash
+# Clone o repositório
+git clone https://github.com/Waidemannm/lariel_front_adm.git
+
+# Entre na pasta do projeto
+cd lariel_front_adm
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor de desenvolvimento
+npm run dev
