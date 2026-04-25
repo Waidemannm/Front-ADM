@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useMenu } from "../hooks/useMenu";
 import React, { useEffect, useState } from 'react';
-import { FaEnvelopeOpenText ,FaFacebookF, FaInstagram, FaYoutube, FaHome, FaRegCalendarCheck, FaGift, FaRegClock, FaCheckCircle} from 'react-icons/fa';
+import { FaEnvelopeOpenText , FaInstagram, FaHome, FaRegCalendarCheck, FaGift, FaRegClock, FaCheckCircle} from 'react-icons/fa';
 import type { TipoCasamento } from "../../../types//tipoCasamento";
 import dados from "../../../../db.json";
 import type { TipoRecadoPendente } from "../../../types/tipoRecadoPendente";
